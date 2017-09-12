@@ -1,0 +1,30 @@
+<resources>
+    <!--
+    TODO: Before you run your application, you need a Google Maps API key.
+
+    To get one, follow this link, follow the directions and press "Create" at the end:
+
+    https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=B6:C1:6A:6E:B7:45:8F:22:90:27:3F:8F:4E:55:4E:E9:80:EA:22:99%3Brido.schedule2
+
+    You can also add your credentials to an existing key, using these values:
+
+    Package name:
+    B6:C1:6A:6E:B7:45:8F:22:90:27:3F:8F:4E:55:4E:E9:80:EA:22:99
+
+    SHA-1 certificate fingerprint:
+    B6:C1:6A:6E:B7:45:8F:22:90:27:3F:8F:4E:55:4E:E9:80:EA:22:99
+
+    Alternatively, follow the directions here:
+    https://developers.google.com/maps/documentation/android/start#get-key
+
+    Once you have your key (it starts with "AIza"), replace the "google_maps_key"
+    string in this file.
+    -->
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">
+         AIzaSyBtEnXChj0tGpOXXboGWwqx7_ONI1u2rMI
+    </string>
+
+
+</resources>
+
+

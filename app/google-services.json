@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "605411312797",
+    "firebase_url": "https://androidschedule-40d3b.firebaseio.com",
+    "project_id": "androidschedule-40d3b",
+    "storage_bucket": "androidschedule-40d3b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:605411312797:android:b6a4136ea6c68d13",
+        "android_client_info": {
+          "package_name": "rido.schedule2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "605411312797-6sp4fd7uqtmrkthfh3u6k0id0ug7ohiv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "rido.schedule2",
+            "certificate_hash": "b6c16a6eb7458f2290273f8f4e554ee980ea2299"
+          }
+        },
+        {
+          "client_id": "605411312797-npcr081267hgq82iu8rk0d7k01e610nn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBV8uGJ0wlpZNyshwiStFCqjQYsx0oGH8U"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "605411312797-npcr081267hgq82iu8rk0d7k01e610nn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

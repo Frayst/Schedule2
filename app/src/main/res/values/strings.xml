@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name" translatable="false">Schedule2</string>
+    <string name="title_activity_home_page" translatable="true">Home</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings" translatable="true">Settings</string>
+    <string name="title_activity_maps" translatable="true">Map</string>
+    <string name="title_activity_schedule" translatable="true">Schedule</string>
+</resources>
