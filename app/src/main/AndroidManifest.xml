@@ -51,7 +51,16 @@
         <activity
             android:name=".Maps"
             android:label="@string/title_activity_maps" />
-        <activity android:name=".Schedule"></activity>
+        <activity android:name=".Schedule" />
+        <activity
+            android:name=".CalendarView"
+            android:label="@string/title_activity_calendar_view"
+            android:parentActivityName=".HomePage"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="rido.schedule2.HomePage" />
+        </activity>
     </application>
 
 </manifest>

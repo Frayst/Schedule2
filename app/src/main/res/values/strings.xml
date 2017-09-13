@@ -8,4 +8,5 @@
     <string name="action_settings" translatable="true">Settings</string>
     <string name="title_activity_maps" translatable="true">Map</string>
     <string name="title_activity_schedule" translatable="true">Schedule</string>
+    <string name="title_activity_calendar_view">Calendar</string>
 </resources>

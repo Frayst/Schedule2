@@ -57,7 +57,6 @@ public class signin extends AppCompatActivity {
                                 Intent homeIntent = new Intent (signin.this,HomePage.class);
                                 Common.currentUser = user;
                                 startActivity(homeIntent);
-                                finish();
                             } else {
                                 mDialog.dismiss();
                                 Toast.makeText(signin.this, "Wrong Password!!!", Toast.LENGTH_SHORT).show();

@@ -9,6 +9,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -40,6 +42,12 @@ import rido.schedule2.ViewHolder.MenuViewHolder;
 
 public class HomePage extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private DrawerLayout mDrawer;
+
+    private Toolbar toolbar;
+
+    private NavigationView nvDrawer;
 
 
     TextView txtFullName;
@@ -88,7 +96,7 @@ public class HomePage extends AppCompatActivity
 
         //Set User Image TODO
 
-        //Load menu TODO
+        //Load menu
         recyler_menu = (RecyclerView)findViewById(R.id.recycler_menu);
         recyler_menu.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
@@ -163,10 +171,11 @@ public class HomePage extends AppCompatActivity
             Intent homeIntent = new Intent (HomePage.this,HomePage.class);
             startActivity(homeIntent);
             finish();
+
         } else if (id == R.id.nav_schedule) {
             Intent Schedule = new Intent (HomePage.this,Schedule.class);
             startActivity(Schedule);
-            finish();
+
 
         } else if (id == R.id.nav_homeworks) {
 
@@ -175,7 +184,6 @@ public class HomePage extends AppCompatActivity
         } else if (id == R.id.nav_maps) {
             Intent Maps = new Intent (HomePage.this,Maps.class);
             startActivity(Maps);
-            finish();
 
         } else if (id == R.id.nav_cribs) {
 
@@ -196,4 +204,5 @@ public class HomePage extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-}
+
+   }

@@ -1,7 +1,11 @@
 package rido.schedule2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.support.v7.widget.ToolbarWidgetWrapper;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -11,7 +15,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 
-public class Maps extends FragmentActivity implements OnMapReadyCallback {
+public class Maps extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
 
@@ -23,9 +27,12 @@ public class Maps extends FragmentActivity implements OnMapReadyCallback {
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        Toolbar toolbar_map = (Toolbar) findViewById(R.id.toolbar_maps);
+        setSupportActionBar(toolbar_map);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
-
-
     /**
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
@@ -45,6 +52,14 @@ public class Maps extends FragmentActivity implements OnMapReadyCallback {
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
 
     }
+
+
+    public void onBackPressed(){
+        Intent Schedule = new Intent(Maps.this,HomePage.class);
+        startActivity(Schedule);
+    }
+
+
 
     //TODO Make a Buttons
 
