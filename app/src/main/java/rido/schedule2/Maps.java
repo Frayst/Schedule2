@@ -2,20 +2,20 @@ package rido.schedule2;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.support.v7.widget.ToolbarWidgetWrapper;
+import android.widget.Toast;
 
-import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.GoogleMapOptions;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.PointOfInterest;
 
 
-public class Maps extends AppCompatActivity implements OnMapReadyCallback {
+public class Maps extends AppCompatActivity implements OnMapReadyCallback , GoogleMap.OnPoiClickListener {
+
+    GoogleMapOptions mOptions = new GoogleMapOptions();
 
     private GoogleMap mMap;
 
@@ -33,6 +33,7 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
+
     /**
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
@@ -47,22 +48,31 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback {
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
+       /* LatLng sydney = new LatLng(-34, 151);
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));*/
 
+        mMap.setIndoorEnabled(true);
+        mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+        mMap.getUiSettings().setZoomControlsEnabled(true);
+        mMap.getUiSettings().setCompassEnabled(true);
+        mMap.getUiSettings().setIndoorLevelPickerEnabled(true);
+        mMap.getUiSettings().setMapToolbarEnabled(true);
+      //  mMap.getUiSettings().setZoomControlsEnabled(true);
+        googleMap.setOnPoiClickListener(this);
     }
-
 
     public void onBackPressed(){
         Intent Schedule = new Intent(Maps.this,HomePage.class);
         startActivity(Schedule);
     }
 
+    @Override
+    public void onPoiClick(PointOfInterest poi) {
+        Toast.makeText(getApplicationContext(), "Clicked on: " +
+                        poi.name,
+                Toast.LENGTH_SHORT).show();
 
-
-    //TODO Make a Buttons
-
-
+    }
 
 }

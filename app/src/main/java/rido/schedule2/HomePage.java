@@ -182,7 +182,7 @@ public class HomePage extends AppCompatActivity
         } else if (id == R.id.nav_messages) {
 
         } else if (id == R.id.nav_maps) {
-            Intent Maps = new Intent (HomePage.this,Maps.class);
+           Intent Maps = new Intent (HomePage.this,Maps.class);
             startActivity(Maps);
 
         } else if (id == R.id.nav_cribs) {
