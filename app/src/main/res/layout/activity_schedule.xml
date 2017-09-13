@@ -16,6 +16,11 @@
         android:background="@android:color/white"
         app:mcv_showOtherDates="all"
         app:mcv_selectionColor="#00F"
+        app:mcv_firstDayOfWeek="monday"
+        app:mcv_calendarMode="month"
+        app:mcv_allowClickDaysOutsideCurrentMonth="true"
+        app:mcv_arrowColor="@color/btnSignUp"
+
         />
 
 </LinearLayout>

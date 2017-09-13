@@ -26,7 +26,7 @@ public class Schedule extends AppCompatActivity {
                 .setFirstDayOfWeek(Calendar.MONDAY)
                 .setMinimumDate(CalendarDay.from(1800, 1, 1))
                 .setMaximumDate(CalendarDay.from(2300, 12, 31))
-                .setCalendarDisplayMode(CalendarMode.MONTHS)
+                .setCalendarDisplayMode(CalendarMode.WEEKS)
                 .commit();
     }
     }
