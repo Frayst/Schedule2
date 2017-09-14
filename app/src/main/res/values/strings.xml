@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">Schedule2</string>
+    <string name="app_name" translatable="false">Schedule</string>
     <string name="title_activity_home_page" translatable="true">Home</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -9,4 +9,7 @@
     <string name="title_activity_maps" translatable="true">Map</string>
     <string name="title_activity_schedule" translatable="true">Schedule</string>
     <string name="title_activity_calendar_view">Calendar</string>
+    <string name="forgot_password" translatable="true">Forgot Password?</string>
+    <string name="title_activity_forgot_password">ForgotPassword</string>
+    <string name="title_activity_profile">Profile</string>
 </resources>

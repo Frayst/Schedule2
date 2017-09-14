@@ -19,7 +19,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/schedule_ss"
+        android:icon="@mipmap/ic_schedule_logo_launcher"
         android:label="Schedule"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -58,6 +58,19 @@
         <activity
             android:name=".CalendarView"
             android:label="@string/title_activity_calendar_view"
+            android:parentActivityName=".HomePage"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="rido.schedule2.HomePage" />
+        </activity>
+        <activity
+            android:name=".ForgotPassword"
+            android:label="@string/title_activity_forgot_password"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Profile"
+            android:label="@string/title_activity_profile"
             android:parentActivityName=".HomePage"
             android:theme="@style/AppTheme">
             <meta-data

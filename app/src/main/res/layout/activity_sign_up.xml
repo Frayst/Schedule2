@@ -5,10 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/schedle_b"
+    android:id="@+id/activity_sign_up"
     tools:context="rido.schedule2.SignUp"
     android:scrollbars="vertical">
 
-    <LinearLayout
+  <!--  <LinearLayout
         android:orientation="vertical"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
@@ -84,7 +85,7 @@
             app:met_singleLineEllipsis="true"
             />
 
-        <!-- <com.rengwuxian.materialedittext.MaterialEditText
+        &lt;!&ndash; <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/edtPhone"
             android:hint="Phone Number"
             android:layout_width="match_parent"
@@ -99,29 +100,117 @@
             app:met_maxCharacters="15"
             app:met_primaryColor="@android:color/white"
             app:met_singleLineEllipsis="true"
-            /> -->
+            /> &ndash;&gt;
+
+
+
+    </LinearLayout>-->
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:id="@+id/linearLayout">
+        <ImageView
+            android:src="@mipmap/ic_schedule_logo"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center_horizontal"
+            />
+        <TextView
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:id="@+id/txtSlogan"
+            android:textColor="@android:color/white"
+            android:text="Schedule"
+            android:textSize="40sp"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            />
 
 
 
     </LinearLayout>
 
+    <android.support.design.widget.TextInputLayout
+        android:textColorHint="@android:color/white"
+        android:id="@+id/signup_input_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout"
+        android:layout_alignParentStart="true"
+        android:theme="@style/TextLabel"
+        android:layout_marginTop="14dp">
+
+        <EditText
+            android:id="@+id/signup_email"
+            android:hint="Enter your email"
+            android:textColorHint="@android:color/white"
+            android:textColor="@android:color/white"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:textColorHint="@android:color/white"
+        android:id="@+id/signup_input_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/signup_input_email"
+        android:layout_alignParentStart="true"
+        android:theme="@style/TextLabel"
+        android:layout_marginTop="14dp">
+
+        <EditText
+            android:id="@+id/signup_password"
+            android:hint="Enter your password"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <TextView
+        android:id="@+id/btnAlreadyacc"
+        android:layout_below="@+id/signup_input_password"
+        android:text="Already account ? Login me!"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginTop="15dp"
+        android:textSize="16sp"
+        android:clickable="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+
     <info.hoang8f.widget.FButton
-        android:id="@+id/btnSignUp"
-        android:text="Sign Up"
+        android:id="@+id/btnRegister"
+        android:text="Register"
         android:textColor="@android:color/white"
         android:layout_marginRight="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_margin="8dp"
         app:buttonColor="@color/btnSignUp"
         app:shadowColor="@android:color/black"
         app:shadowEnabled="true"
         app:shadowHeight="5dp"
         app:cornerRadius="4dp"
-        />
+        android:layout_marginTop="26dp"
+        android:layout_below="@+id/btnAlreadyacc"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>

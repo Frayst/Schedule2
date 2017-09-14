@@ -1,12 +1,22 @@
 package rido.schedule2;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -16,15 +26,37 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 
 import rido.schedule2.Model.User;
 
-public class SignUp extends AppCompatActivity {
+public class SignUp extends AppCompatActivity implements View.OnClickListener {
 
-    MaterialEditText edtLogin,edtName,edtPassword,edtEmail;
-    Button btnSignUp;
+    TextView btnLogin;
+    EditText input_email,input_password;
+    Button btnRegister;
+    RelativeLayout activity_sign_up;
+
+    private FirebaseAuth auth;
+    Snackbar snackbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
+
+        btnRegister = (Button)findViewById(R.id.btnRegister);
+        btnLogin = (TextView)findViewById(R.id.btnAlreadyacc);
+        input_email = (EditText)findViewById(R.id.signup_email);
+        input_password = (EditText)findViewById(R.id.signup_password);
+        activity_sign_up = (RelativeLayout)findViewById(R.id.activity_sign_up);
+
+
+        auth = FirebaseAuth.getInstance();
+
+        btnLogin.setOnClickListener(this);
+        btnRegister.setOnClickListener(this);
+
+
+
+
+/*
 
         edtName = (MaterialEditText)findViewById(R.id.edtName);
         edtLogin = (MaterialEditText)findViewById(R.id.edtLogin);
@@ -71,6 +103,40 @@ public class SignUp extends AppCompatActivity {
             }
         });
 
+*/
 
+    }
+
+    public void onClick(View view){
+        if(view.getId() == R.id.btnAlreadyacc){
+            startActivity(new Intent(SignUp.this,Main.class));
+            finish();
+        }
+        else  if(view.getId() == R.id.btnRegister){
+
+            signUp(input_email.getText().toString(),input_password.getText().toString());
+        }
+
+    }
+
+    private void signUp(String email, String password) {
+        auth.createUserWithEmailAndPassword(email,password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(!task.isSuccessful()){
+                            snackbar = Snackbar.make(activity_sign_up,"Error: "+task.getException(),Snackbar.LENGTH_SHORT);
+                            snackbar.show();
+                        }
+                        else  {
+                            snackbar = Snackbar.make(activity_sign_up,"Register success : "+auth.getCurrentUser().getDisplayName().toString(),Snackbar.LENGTH_SHORT);
+                            snackbar.show();
+
+                            startActivity(new Intent(SignUp.this,Main.class));
+                            finish();
+                        }
+
+                    }
+                });
     }
 }

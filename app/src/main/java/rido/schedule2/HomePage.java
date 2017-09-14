@@ -28,6 +28,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
@@ -41,7 +42,7 @@ import rido.schedule2.ViewHolder.MenuViewHolder;
 
 
 public class HomePage extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
     private DrawerLayout mDrawer;
 
@@ -53,6 +54,7 @@ public class HomePage extends AppCompatActivity
     TextView txtFullName;
 
     FirebaseDatabase database;
+    FirebaseAuth auth;
     DatabaseReference category;
 
     RecyclerView recyler_menu;
@@ -71,14 +73,14 @@ public class HomePage extends AppCompatActivity
         category = database.getReference("Category");
 
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+       /* FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
+        });*/
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -91,8 +93,11 @@ public class HomePage extends AppCompatActivity
 
         View headerView = navigationView.getHeaderView(0);
         //Set User name
+        auth = FirebaseAuth.getInstance();
+
         txtFullName = (TextView)headerView.findViewById(R.id.txtFullName);
-        txtFullName.setText(Common.currentUser.getName());
+      // txtFullName.setText(auth.getCurrentUser().getDisplayName());
+        txtFullName.setOnClickListener(this);
 
         //Set User Image TODO
 
@@ -192,11 +197,15 @@ public class HomePage extends AppCompatActivity
         } else if (id == R.id.nav_tools) {
 
         } else if (id == R.id.nav_signout) {
+            auth.signOut();
+            startActivity(new Intent(HomePage.this,Main.class));
+           finish();
 
+/*
             Intent LogOut = new Intent (HomePage.this,signin.class);
             LogOut.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(LogOut);
-            finish();
+            finish();*/
 
         }
 
@@ -205,4 +214,10 @@ public class HomePage extends AppCompatActivity
         return true;
     }
 
-   }
+    @Override
+    public void onClick(View v) {
+        if(v.getId() == R.id.txtFullName){
+            startActivity(new Intent(HomePage.this,Profile.class));
+        }
+    }
+}

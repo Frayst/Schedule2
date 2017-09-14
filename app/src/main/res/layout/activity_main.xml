@@ -10,18 +10,22 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@drawable/schedle_b"
-    tools:context="rido.schedule2.Main">
+    tools:context="rido.schedule2.Main"
+    android:scrollbars="vertical">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_centerInParent="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:id="@+id/linearLayout">
         <ImageView
-            android:src="@drawable/schedule_loggo"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_gravity="center_horizontal"/>
+            android:src="@mipmap/ic_schedule_logo"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center_horizontal"
+            />
         <TextView
             android:gravity="center"
             android:layout_gravity="center"
@@ -30,16 +34,83 @@
             android:text="Schedule"
             android:textSize="40sp"
             android:layout_width="200dp"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            />
+
+
         
     </LinearLayout>
 
+    <android.support.design.widget.TextInputLayout
+        android:textColorHint="@android:color/white"
+        android:id="@+id/login_input_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout"
+        android:layout_alignParentStart="true"
+        android:theme="@style/TextLabel"
+        android:layout_marginTop="14dp">
+
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/login_email"
+            android:hint="Enter your email"
+            android:textColor="@android:color/white"
+            android:textColorLink="@color/colorPrimary"
+            android:textColorHint="@android:color/white"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:textColorHint="@android:color/white"
+        android:id="@+id/login_input_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login_input_email"
+        android:layout_alignParentStart="true"
+        android:theme="@style/TextLabel"
+        android:layout_marginTop="14dp">
+
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/login_password"
+            android:hint="Enter your password"
+            android:textColor="@android:color/white"
+            android:textColorLink="@color/colorPrimary"
+            android:textColorHint="@android:color/white"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <TextView
+        android:id="@+id/txtForgotPass"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login_input_password"
+        android:clickable="true"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:text="@string/forgot_password"
+        android:gravity="center"
+        android:textSize="15sp"
+        />
+
+
     <LinearLayout
         android:orientation="horizontal"
-        android:layout_alignParentBottom="true"
         android:weightSum="2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login_input_password"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="58dp"
+        android:id="@+id/linearLayout2">
 
         <info.hoang8f.widget.FButton
             android:id="@+id/btnSignUp"
@@ -53,10 +124,11 @@
             app:buttonColor="@color/btnSignUp"
             app:shadowColor="@android:color/black"
             app:shadowEnabled="true"
-            app:shadowHeight="5dp"
+            app:shadowHeight="3dp"
             app:cornerRadius="4dp"
 
             />
+
 
         <info.hoang8f.widget.FButton
             android:id="@+id/btnSignIn"
@@ -70,9 +142,44 @@
             app:buttonColor="@color/btnSignActive"
             app:shadowColor="@android:color/black"
             app:shadowEnabled="true"
-            app:shadowHeight="5dp"
+            app:shadowHeight="3dp"
             app:cornerRadius="4dp"
 
             />
+
+
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:gravity="bottom"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:text="OR"
+        android:layout_marginTop="8dp"
+        android:textStyle="bold"
+        android:layout_below="@+id/linearLayout2"
+        android:layout_centerHorizontal="true" />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/textView"
+    android:gravity="center"
+    android:weightSum="1"
+    android:layout_alignParentBottom="true">
+
+    <com.google.android.gms.common.SignInButton
+    android:id="@+id/sign_in_button"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+
+    android:layout_alignParentStart="true"
+        android:layout_weight="0.16" />
+</LinearLayout>
+
+
+
+
+
 </RelativeLayout>
