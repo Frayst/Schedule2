@@ -129,9 +129,10 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
                             snackbar.show();
                         }
                         else  {
-                            snackbar = Snackbar.make(activity_sign_up,"Register success : "+auth.getCurrentUser().getDisplayName().toString(),Snackbar.LENGTH_SHORT);
-                            snackbar.show();
 
+                            snackbar = Snackbar.make(activity_sign_up,"Register success : ",Snackbar.LENGTH_SHORT);
+                            snackbar.show();
+                            auth.getCurrentUser().sendEmailVerification();
                             startActivity(new Intent(SignUp.this,Main.class));
                             finish();
                         }

@@ -95,12 +95,6 @@ public class HomePage extends AppCompatActivity
         //Set User name
         auth = FirebaseAuth.getInstance();
 
-        txtFullName = (TextView)headerView.findViewById(R.id.txtFullName);
-      // txtFullName.setText(auth.getCurrentUser().getDisplayName());
-        txtFullName.setOnClickListener(this);
-
-        //Set User Image TODO
-
         //Load menu
         recyler_menu = (RecyclerView)findViewById(R.id.recycler_menu);
         recyler_menu.setHasFixedSize(true);
@@ -108,6 +102,15 @@ public class HomePage extends AppCompatActivity
         recyler_menu.setLayoutManager(layoutManager);
 
         loadMenu();
+
+        txtFullName = (TextView)headerView.findViewById(R.id.txtFullName);
+        if(auth.getCurrentUser() != null) {
+            txtFullName.setText(auth.getCurrentUser().getEmail());
+        }
+        txtFullName.setOnClickListener(this);
+
+        //Set User Image TODO
+
 
 
     }
@@ -200,12 +203,6 @@ public class HomePage extends AppCompatActivity
             auth.signOut();
             startActivity(new Intent(HomePage.this,Main.class));
            finish();
-
-/*
-            Intent LogOut = new Intent (HomePage.this,signin.class);
-            LogOut.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(LogOut);
-            finish();*/
 
         }
 

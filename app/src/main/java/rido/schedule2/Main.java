@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -96,7 +97,6 @@ public class Main extends AppCompatActivity implements View.OnClickListener {
         if(v.getId() == R.id.txtForgotPass)
         {
             startActivity(new Intent(Main.this,ForgotPassword.class));
-            finish();
         }
         else if(v.getId() == R.id.btnSignUp)
         {
@@ -114,18 +114,25 @@ public class Main extends AppCompatActivity implements View.OnClickListener {
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(!task.isSuccessful())
-                        {
-                            if(password.length() < 6)
-                            {
-                                Snackbar snackbar = Snackbar.make(activity_main,"Password length must be over 6", Snackbar.LENGTH_SHORT);
-                                snackbar.show();
+                        if(!task.isSuccessful()) {
+                            if (password.length() < 6) {
+                                Toast.makeText(Main.this, "Password length must be over 6", Toast.LENGTH_SHORT).show();
                             }
+                            Toast.makeText(Main.this, "Sign In Error!", Toast.LENGTH_SHORT).show();
                         }
                         else
                         {
-                            startActivity(new Intent(Main.this,HomePage.class));
-                            finish();
+                            if (auth.getCurrentUser().isEmailVerified()) {
+                                startActivity(new Intent(Main.this,HomePage.class));
+                              //  finish();
+                            }
+                            else
+                            {
+                                auth.getCurrentUser().sendEmailVerification();
+                                Toast.makeText(Main.this, "Email Verification required!", Toast.LENGTH_SHORT).show();
+                            }
+                          /*  startActivity(new Intent(Main.this,HomePage.class));
+                            finish();*/
                         }
                     }
                 });

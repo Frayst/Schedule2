@@ -165,17 +165,17 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_below="@+id/textView"
-    android:gravity="center"
+    android:gravity="center_horizontal"
     android:weightSum="1"
     android:layout_alignParentBottom="true">
 
     <com.google.android.gms.common.SignInButton
-    android:id="@+id/sign_in_button"
-    android:layout_width="wrap_content"
-    android:layout_height="match_parent"
+        android:id="@+id/sign_in_button"
+        android:layout_width="132dp"
+        android:layout_height="33dp"
+        android:layout_weight="0.10" />
 
-    android:layout_alignParentStart="true"
-        android:layout_weight="0.16" />
+
 </LinearLayout>
 
 
