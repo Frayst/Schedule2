@@ -52,7 +52,7 @@ public class signin extends AppCompatActivity {
                             mDialog.dismiss();
                             //Get User information
                             User user = dataSnapshot.child(edtLogin.getText().toString()).getValue(User.class);
-                            if (user.getPassword().equals(edtPassword.getText().toString())) {
+                           /* if (user.getPassword().equals(edtPassword.getText().toString())) {
                                 Toast.makeText(signin.this, "Sign in successfully!", Toast.LENGTH_SHORT).show();
                                 Intent homeIntent = new Intent (signin.this,HomePage.class);
                                 Common.currentUser = user;
@@ -60,7 +60,7 @@ public class signin extends AppCompatActivity {
                             } else {
                                 mDialog.dismiss();
                                 Toast.makeText(signin.this, "Wrong Password!!!", Toast.LENGTH_SHORT).show();
-                            }
+                            }*/
                         }
                         else
                         {

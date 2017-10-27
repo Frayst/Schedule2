@@ -1,41 +1,37 @@
 package rido.schedule2;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
+import  android.Manifest;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.AsyncTask;
+import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
-import java.io.InputStream;
+import java.util.Objects;
 
-import rido.schedule2.Common.Common;
 import rido.schedule2.Interface.ItemClickListener;
 import rido.schedule2.Model.Category;
 import rido.schedule2.ViewHolder.MenuViewHolder;
@@ -44,14 +40,16 @@ import rido.schedule2.ViewHolder.MenuViewHolder;
 public class HomePage extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
-    private DrawerLayout mDrawer;
+      private DrawerLayout mDrawer;
 
     private Toolbar toolbar;
 
     private NavigationView nvDrawer;
 
+    public Boolean isAdmin;
 
-    TextView txtFullName;
+    TextView txtFullName, txtEmail;
+    ImageView imgAvatar;
 
     FirebaseDatabase database;
     FirebaseAuth auth;
@@ -59,7 +57,7 @@ public class HomePage extends AppCompatActivity
 
     RecyclerView recyler_menu;
     RecyclerView.LayoutManager layoutManager;
-
+    StorageReference mStorage;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,7 +69,7 @@ public class HomePage extends AppCompatActivity
                 //Init Firebase
         database = FirebaseDatabase.getInstance();
         category = database.getReference("Category");
-
+        mStorage = FirebaseStorage.getInstance().getReference();
 
        /* FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -92,8 +90,39 @@ public class HomePage extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         View headerView = navigationView.getHeaderView(0);
+
+        imgAvatar = (ImageView)headerView.findViewById(R.id.imgProfile);
         //Set User name
         auth = FirebaseAuth.getInstance();
+
+        MobileAds.initialize(this, "ca-app-pub-7265545828484759~2384016923");
+
+        if(Objects.equals(auth.getCurrentUser().getUid(), "dbBC8NzHGuhNFm0U80q86xkfTff1")){
+            isAdmin = Boolean.TRUE;
+            Toast.makeText(this, "You are Administrator!", Toast.LENGTH_LONG).show();
+        } else if (Objects.equals(auth.getCurrentUser().getUid(), "")){
+            isAdmin = Boolean.TRUE;
+        }
+
+        txtFullName = (TextView)headerView.findViewById(R.id.txtFullName);
+        if(auth.getCurrentUser() != null)
+        {
+            if(!Objects.equals(auth.getCurrentUser().getDisplayName(), "")) {
+                txtFullName.setText(auth.getCurrentUser().getDisplayName());
+            } else {
+                txtFullName.setText(auth.getCurrentUser().getEmail());
+            }
+
+        } else {
+            startActivity(new Intent(HomePage.this,Main.class));
+        }
+        txtFullName.setOnClickListener(this);
+
+        txtEmail = (TextView)headerView.findViewById(R.id.txtEmail);
+        if(auth.getCurrentUser() != null)
+        {
+            txtEmail.setText(auth.getCurrentUser().getEmail());
+        }
 
         //Load menu
         recyler_menu = (RecyclerView)findViewById(R.id.recycler_menu);
@@ -103,17 +132,21 @@ public class HomePage extends AppCompatActivity
 
         loadMenu();
 
-        txtFullName = (TextView)headerView.findViewById(R.id.txtFullName);
-        if(auth.getCurrentUser() != null) {
-            txtFullName.setText(auth.getCurrentUser().getEmail());
-        }
-        txtFullName.setOnClickListener(this);
-
         //Set User Image TODO
 
+        StorageReference load = mStorage.child("users").child(auth.getCurrentUser().getUid()).child("Avatar").child("avatar.png");
 
+        load.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Glide.with(HomePage.this).load(uri.toString()).into(imgAvatar);
+            }
+        });
 
     }
+
+
+
 
     private void loadMenu() {
 
@@ -178,12 +211,10 @@ public class HomePage extends AppCompatActivity
             // Handle the camera action
             Intent homeIntent = new Intent (HomePage.this,HomePage.class);
             startActivity(homeIntent);
-            finish();
 
         } else if (id == R.id.nav_schedule) {
             Intent Schedule = new Intent (HomePage.this,Schedule.class);
             startActivity(Schedule);
-
 
         } else if (id == R.id.nav_homeworks) {
 
@@ -217,4 +248,5 @@ public class HomePage extends AppCompatActivity
             startActivity(new Intent(HomePage.this,Profile.class));
         }
     }
+
 }

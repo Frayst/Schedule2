@@ -53,7 +53,7 @@
 
         <android.support.v7.widget.AppCompatEditText
             android:id="@+id/login_email"
-            android:hint="Enter your email"
+            android:hint="@string/enter_your_email"
             android:textColor="@android:color/white"
             android:textColorLink="@color/colorPrimary"
             android:textColorHint="@android:color/white"
@@ -76,7 +76,7 @@
 
         <android.support.v7.widget.AppCompatEditText
             android:id="@+id/login_password"
-            android:hint="Enter your password"
+            android:hint="@string/enter_your_password"
             android:textColor="@android:color/white"
             android:textColorLink="@color/colorPrimary"
             android:textColorHint="@android:color/white"
@@ -112,40 +112,30 @@
         android:layout_marginTop="58dp"
         android:id="@+id/linearLayout2">
 
-        <info.hoang8f.widget.FButton
+        <android.support.v7.widget.AppCompatButton
             android:id="@+id/btnSignUp"
-            android:text="Sign Up"
+            android:text="SignUP"
+            android:background="@drawable/button_selector"
             android:textColor="@android:color/white"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorPrimaryDark"
             android:layout_gravity="center_horizontal"
             android:layout_margin="8dp"
-            app:buttonColor="@color/btnSignUp"
-            app:shadowColor="@android:color/black"
-            app:shadowEnabled="true"
-            app:shadowHeight="3dp"
-            app:cornerRadius="4dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
 
-            />
-
-
-        <info.hoang8f.widget.FButton
+        <android.support.v7.widget.AppCompatButton
             android:id="@+id/btnSignIn"
-            android:text="Sign In"
+            android:text="SignIN"
+            android:background="@drawable/button_selector"
             android:textColor="@android:color/white"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorPrimary"
             android:layout_gravity="center_horizontal"
             android:layout_margin="8dp"
-            app:buttonColor="@color/btnSignActive"
-            app:shadowColor="@android:color/black"
-            app:shadowEnabled="true"
-            app:shadowHeight="3dp"
-            app:cornerRadius="4dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
 
-            />
 
 
     </LinearLayout>
@@ -170,10 +160,10 @@
     android:layout_alignParentBottom="true">
 
     <com.google.android.gms.common.SignInButton
-        android:id="@+id/sign_in_button"
+        android:id="@+id/googleBtn"
         android:layout_width="132dp"
-        android:layout_height="33dp"
-        android:layout_weight="0.10" />
+        android:layout_height="39dp"
+        android:layout_weight="0.40" />
 
 
 </LinearLayout>

@@ -28,7 +28,7 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback , Goog
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        Toolbar toolbar_map = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar_map = (Toolbar) findViewById(R.id.toolbar_maps);
         setSupportActionBar(toolbar_map);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

@@ -10,182 +10,190 @@
     tools:showIn="@layout/activity_profile">
 
     <LinearLayout
-        android:orientation="vertical"
-        android:layout_centerInParent="true"
-        android:layout_width="344dp"
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:id="@+id/linearLayout"
-        tools:layout_editor_absoluteY="0dp"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="8dp"
-        tools:ignore="MissingConstraints">
+        tools:layout_editor_absoluteY="16dp">
 
 
-            <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_gravity="center"
+            android:id="@+id/imgProfile"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:src="@mipmap/ic_schedule_logo_launcher"
+            app:civ_border_width="1dp"
+            app:civ_border_color="#FF000000"/>
+        <!--<ImageView
             android:id="@+id/imgProfil"
-            android:src="@mipmap/ic_schedule_logo"
             android:layout_width="100dp"
-            android:layout_height="150dp"
+            android:layout_height="124dp"
             android:layout_gravity="center_horizontal"
-            />
+            android:src="@mipmap/ic_schedule_logo" />-->
 
         <TextView
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:id="@+id/txtWelcome"
-            android:textColor="@android:color/white"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:text="Welcome, user"
-            android:textSize="15sp"
-            android:maxLines="2"
+            android:id="@+id/txtChangePhoto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            />
+            android:clickable="true"
+            android:gravity="center"
+            android:text="Change Photo"
+            android:textColor="@android:color/white" />
 
-      <!--  <android.support.design.widget.TextInputLayout
-            android:textColorHint="@android:color/white"
+        <TextView
+            android:id="@+id/txtWelcome"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:maxLines="2"
+            android:text="Welcome, user"
+            android:textColor="@android:color/white"
+            android:textSize="15sp" />
+
+        <android.support.design.widget.TextInputLayout
             android:id="@+id/profile_input_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/TextLabel"
-            android:layout_marginTop="14dp">
+            android:layout_marginTop="14dp"
+            android:textColorHint="@android:color/white"
+            android:theme="@style/TextLabel">
 
             <android.support.v7.widget.AppCompatEditText
                 android:id="@+id/profile_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:hint="Enter new Name"
-                android:textColor="@android:color/white"
-                android:textColorLink="@color/colorPrimary"
-                android:textColorHint="@android:color/white"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white"
+                android:textColorLink="@color/colorPrimary" />
 
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
-            android:textColorHint="@android:color/white"
-            android:id="@+id/profile_input_phone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:theme="@style/TextLabel"
-            android:layout_marginTop="14dp">
-
-            <android.support.v7.widget.AppCompatEditText
-                android:id="@+id/profile_phone"
-                android:hint="Enter new Phonenumber"
-                android:textColor="@android:color/white"
-                android:textColorLink="@color/colorPrimary"
-                android:textColorHint="@android:color/white"
-                android:inputType="textEmailAddress"
-                android:maxLines="1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-        </android.support.design.widget.TextInputLayout>-->
-
-        <android.support.design.widget.TextInputLayout
-            android:textColorHint="@android:color/white"
             android:id="@+id/profile_input_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/TextLabel"
-            android:layout_marginTop="14dp">
+            android:layout_marginTop="14dp"
+            android:textColorHint="@android:color/white"
+            android:theme="@style/TextLabel">
 
             <android.support.v7.widget.AppCompatEditText
                 android:id="@+id/profile_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:hint="Enter new Password"
-                android:textColor="@android:color/white"
-                android:textColorLink="@color/colorPrimary"
-                android:textColorHint="@android:color/white"
                 android:inputType="textPassword"
                 android:maxLines="1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white"
+                android:textColorLink="@color/colorPrimary" />
 
         </android.support.design.widget.TextInputLayout>
 
-        <info.hoang8f.widget.FButton
-
+        <android.support.v7.widget.AppCompatButton
             android:id="@+id/btnSave"
             android:text="Save Changes"
+            android:background="@drawable/button_selector"
             android:textColor="@android:color/white"
+            android:backgroundTint="@color/btnSignUp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="8dp"
             android:layout_weight="1"
+            android:layout_width="148dp"
+            android:layout_height="48dp" />
+
+       <!-- <info.hoang8f.widget.FButton
+
+            android:id="@+id/btnSave"
             android:layout_width="178dp"
             android:layout_height="48dp"
             android:layout_gravity="center_horizontal"
             android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:text="Save Changes"
+            android:textColor="@android:color/white"
             app:buttonColor="@color/btnSignUp"
+            app:cornerRadius="4dp"
             app:shadowColor="@android:color/black"
             app:shadowEnabled="true"
             app:shadowHeight="3dp"
-            app:cornerRadius="4dp"
-            tools:layout_editor_absoluteY="302dp"
+            tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="91dp"
-            tools:ignore="MissingConstraints" />
-
-        <info.hoang8f.widget.FButton
-
-            android:id="@+id/btnLogOut"
-            android:text="SignOut"
-            android:textColor="@android:color/white"
-            android:layout_weight="1"
-            android:layout_width="178dp"
-            android:layout_height="48dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="8dp"
-            app:buttonColor="@color/btnSignActive"
-            app:shadowColor="@android:color/black"
-            app:shadowEnabled="true"
-            app:shadowHeight="3dp"
-            app:cornerRadius="4dp"
-
-            tools:layout_editor_absoluteY="367dp"
-            tools:layout_editor_absoluteX="91dp"
-            tools:ignore="MissingConstraints" />
+            tools:layout_editor_absoluteY="302dp" />
+-->
 
 
 
     </LinearLayout>
 
-      <!--  <info.hoang8f.widget.FButton
+    <!--  <info.hoang8f.widget.FButton
 
-            android:id="@+id/btnSave"
-            android:text="Save Changes"
-            android:textColor="@android:color/white"
-            android:layout_weight="1"
-            android:layout_width="178dp"
-            android:layout_height="48dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="8dp"
-            app:buttonColor="@color/btnSignUp"
-            app:shadowColor="@android:color/black"
-            app:shadowEnabled="true"
-            app:shadowHeight="3dp"
-            app:cornerRadius="4dp"
-            tools:layout_editor_absoluteY="302dp"
-            tools:layout_editor_absoluteX="91dp"
-            tools:ignore="MissingConstraints" />
+          android:id="@+id/btnSave"
+          android:text="Save Changes"
+          android:textColor="@android:color/white"
+          android:layout_weight="1"
+          android:layout_width="178dp"
+          android:layout_height="48dp"
+          android:layout_gravity="center_horizontal"
+          android:layout_margin="8dp"
+          app:buttonColor="@color/btnSignUp"
+          app:shadowColor="@android:color/black"
+          app:shadowEnabled="true"
+          app:shadowHeight="3dp"
+          app:cornerRadius="4dp"
+          tools:layout_editor_absoluteY="302dp"
+          tools:layout_editor_absoluteX="91dp"
+          tools:ignore="MissingConstraints" />
 
-        <info.hoang8f.widget.FButton
+      <info.hoang8f.widget.FButton
 
-            android:id="@+id/btnLogOut"
-            android:text="SignOut"
-            android:textColor="@android:color/white"
-            android:layout_weight="1"
-            android:layout_width="178dp"
-            android:layout_height="48dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="8dp"
-            app:buttonColor="@color/btnSignActive"
-            app:shadowColor="@android:color/black"
-            app:shadowEnabled="true"
-            app:shadowHeight="3dp"
-            app:cornerRadius="4dp"
+          android:id="@+id/btnLogOut"
+          android:text="SignOut"
+          android:textColor="@android:color/white"
+          android:layout_weight="1"
+          android:layout_width="178dp"
+          android:layout_height="48dp"
+          android:layout_gravity="center_horizontal"
+          android:layout_margin="8dp"
+          app:buttonColor="@color/btnSignActive"
+          app:shadowColor="@android:color/black"
+          app:shadowEnabled="true"
+          app:shadowHeight="3dp"
+          app:cornerRadius="4dp"
 
-            tools:layout_editor_absoluteY="367dp"
-            tools:layout_editor_absoluteX="91dp"
-            tools:ignore="MissingConstraints" />-->
+          tools:layout_editor_absoluteY="367dp"
+          tools:layout_editor_absoluteX="91dp"
+          tools:ignore="MissingConstraints" />-->
+
+  <!--  <info.hoang8f.widget.FButton
+
+        android:id="@+id/btnLogOut"
+        android:layout_width="344dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="8dp"
+        android:layout_weight="1"
+        android:text="SignOut"
+        android:textColor="@android:color/white"
+        app:buttonColor="@color/btnSignActive"
+        app:cornerRadius="4dp"
+        app:shadowColor="@android:color/black"
+        app:shadowEnabled="true"
+        app:shadowHeight="3dp"
+
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="447dp" />-->
 
 
 </android.support.constraint.ConstraintLayout>

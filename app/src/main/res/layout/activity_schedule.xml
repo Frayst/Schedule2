@@ -5,24 +5,61 @@
     android:layout_width="match_parent"
     android:id="@+id/schedule_drawer_layout"
     android:layout_height="match_parent"
-    android:background="@drawable/schedle_b"
+    android:background="@color/white"
     tools:context="rido.schedule2.Schedule">
 
-    <!--<com.prolificinteractive.materialcalendarview.MaterialCalendarView
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/calendarView"
+    <!--android:background="@drawable/schedle_b"-->
+
+
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/white"
-        app:mcv_showOtherDates="all"
-        app:mcv_selectionColor="#00F"
-        app:mcv_firstDayOfWeek="monday"
-        app:mcv_calendarMode="month"
-        app:mcv_allowClickDaysOutsideCurrentMonth="true"
-        app:mcv_arrowColor="@color/btnSignUp"
+        android:theme="@style/AppTheme.AppBarOverlay">
 
-        />-->
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        app:popupTheme="@style/AppTheme.AppBarOverlay"
+        android:layout_alignParentTop="true"
+        android:titleTextColor="@android:color/white"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
+    </android.support.design.widget.AppBarLayout>
+
+
+    <ImageButton
+        android:id="@+id/imageCalendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="13dp"
+        android:background="?attr/colorPrimary"
+        android:tint="@android:color/black"
+        app:srcCompat="@drawable/ic_date_range_black_24dp"
+        android:layout_alignTop="@+id/fab3"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="19dp" />
+
+    <TextView
+        android:id="@+id/textDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Current Date"
+        android:textColor="@android:color/black"
+        android:layout_above="@+id/fab3"
+        android:layout_centerHorizontal="true" />
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </LinearLayout>
 
     <devs.mulham.horizontalcalendar.HorizontalCalendarView
         android:id="@+id/calendarView"
@@ -31,43 +68,32 @@
         android:background="@color/colorPrimary"
         app:textColorSelected="#FFFF"
         app:selectorColor="#5e89de"
-        android:layout_below="@+id/toolbar2"
-        android:layout_alignParentLeft="true"
+        android:layout_marginTop="56dp"
+        android:layout_below="@+id/appbar"
         android:layout_alignParentStart="true" />
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar2"
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab3"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginBottom="33dp"
+        android:clickable="true"
+        app:fabSize="mini"
+        android:tint="@android:color/white"
+        app:srcCompat="@android:drawable/ic_menu_add"
+        android:layout_marginEnd="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true" />
+
+    <CalendarView
+        android:id="@+id/CalendarBig"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:id="@+id/textDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SDDSFDSFD"
-        android:textColor="@android:color/white"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="199dp" />
-
-    <ImageButton
-        android:id="@+id/imageCalendar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        app:srcCompat="@drawable/ic_date_range_black_24dp"
-        android:tint="@android:color/white"
-        android:layout_marginRight="13dp"
-        android:layout_marginEnd="13dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="15dp" />
+        android:layout_above="@+id/textDate"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="64dp" />
 
 </RelativeLayout>
+
+

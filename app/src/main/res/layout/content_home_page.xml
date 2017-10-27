@@ -12,10 +12,8 @@
         android:id="@+id/recycler_menu"
         android:scrollbars="vertical"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"        >
-
+        android:layout_height="wrap_content" >
 
     </android.support.v7.widget.RecyclerView>
-
 
 </android.support.constraint.ConstraintLayout>

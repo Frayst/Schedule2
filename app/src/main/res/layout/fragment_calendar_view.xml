@@ -7,14 +7,5 @@
     tools:context="rido.schedule2.CalendarViewFragment"
     tools:showIn="@layout/activity_calendar_view">
 
-   <com.prolificinteractive.materialcalendarview.MaterialCalendarView
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       app:mcv_arrowColor="?attr/colorPrimary"
-       android:backgroundTint="@android:color/black"
-       >
-
-   </com.prolificinteractive.materialcalendarview.MaterialCalendarView>
-
 
 </android.support.constraint.ConstraintLayout>
