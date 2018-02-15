@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -26,6 +27,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
@@ -219,6 +221,8 @@ public class HomePage extends AppCompatActivity
         } else if (id == R.id.nav_homeworks) {
 
         } else if (id == R.id.nav_messages) {
+            Intent Messages = new Intent (HomePage.this,Chat.class);
+            startActivity(Messages);
 
         } else if (id == R.id.nav_maps) {
            Intent Maps = new Intent (HomePage.this,Maps.class);
@@ -248,5 +252,6 @@ public class HomePage extends AppCompatActivity
             startActivity(new Intent(HomePage.this,Profile.class));
         }
     }
+
 
 }

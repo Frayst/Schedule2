@@ -7,17 +7,18 @@ import java.util.Calendar;
 
 public class Popup implements IPopup {
 
-    private Calendar startTime;
-    private Calendar endTime;
+    public Calendar timeStart;
+    public Calendar timeEnd;
 
     private String imageStart;
     private String imageEnd;
 
+
     private String title;
 
-    String description;
+    private String description;
 
-    String quote;
+    private String quote;
 
     public Popup() {
 
@@ -73,23 +74,26 @@ public class Popup implements IPopup {
         return false;
     }
 
-    public void setStartTime(Calendar timeStart) {
-        this.startTime = timeStart;
-    }
+   /* public void setStartTime(Calendar timeStart) {
+        this.timeStart = timeStart;
+    }*/
 
     @Override
     public Calendar getStartTime() {
-        return startTime;
+        return timeStart;
     }
 
-    public void setEndTime(Calendar endTime) {
-        this.endTime = endTime;
+
+    public void setEndTime(Calendar timeEnd) {
+        this.timeEnd = timeEnd ;
     }
 
     @Override
     public Calendar getEndTime() {
-        return endTime;
+        return timeEnd;
     }
 
-
+    public void setStartTime(Calendar timeStart) {
+        this.timeStart = timeStart;
+    }
 }

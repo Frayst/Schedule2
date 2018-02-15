@@ -13,7 +13,7 @@ public class Event implements IEvent {
     private String mLocation;
     private int mColor;
 
-    public Event(int mId, android.icu.util.Calendar timeStart, android.icu.util.Calendar timeEnd, String event, String hockaido, int eventColor) {
+    public Event() {
 
     }
 

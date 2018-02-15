@@ -15,11 +15,19 @@
       },
       "oauth_client": [
         {
-          "client_id": "605411312797-6sp4fd7uqtmrkthfh3u6k0id0ug7ohiv.apps.googleusercontent.com",
+          "client_id": "605411312797-9no1rc3sskaulqojfv47g7t4c6co27ua.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "rido.schedule2",
             "certificate_hash": "b6c16a6eb7458f2290273f8f4e554ee980ea2299"
+          }
+        },
+        {
+          "client_id": "605411312797-6sp4fd7uqtmrkthfh3u6k0id0ug7ohiv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "rido.schedule2",
+            "certificate_hash": "d65d104d05b070fb445550a7b39f7b633b9daaee"
           }
         },
         {
