@@ -40,13 +40,13 @@
 
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:cacheColorHint="@color/white"
         android:layout_above="@id/send"
         android:dividerHeight="1dp"
-        android:divider="@color/blue_A700"
+        android:divider="@color/transparent"
         android:id="@+id/list_of_messages"
         android:layout_marginBottom="16dp"/>
 </RelativeLayout>

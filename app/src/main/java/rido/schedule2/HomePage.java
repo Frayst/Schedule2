@@ -215,7 +215,7 @@ public class HomePage extends AppCompatActivity
             startActivity(homeIntent);
 
         } else if (id == R.id.nav_schedule) {
-            Intent Schedule = new Intent (HomePage.this,Schedule.class);
+            Intent Schedule = new Intent (HomePage.this,CalendarView.class);
             startActivity(Schedule);
 
         } else if (id == R.id.nav_homeworks) {

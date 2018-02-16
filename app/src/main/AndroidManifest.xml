@@ -15,7 +15,7 @@
     <uses-permission android:name="android.permission.READ_CALENDAR" />
     <uses-permission android:name="android.permission.WRITE_CALENDAR" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-        <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
 
@@ -84,7 +84,16 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="rido.schedule2.HomePage" />
         </activity>
-        <activity android:name=".Chat"></activity>
+        <activity android:name=".Chat" />
+        <activity
+            android:name=".messages"
+            android:label="@string/title_activity_messages"
+            android:parentActivityName=".HomePage"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="rido.schedule2.HomePage" />
+        </activity>
     </application>
 
 </manifest>
