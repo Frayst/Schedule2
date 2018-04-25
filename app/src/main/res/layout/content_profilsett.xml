@@ -4,23 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/schedle_b"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="rido.schedule2.Profile"
-    tools:showIn="@layout/activity_profile">
+    tools:context="rido.schedule2.ViewHolder.ProfileSettings"
+    android:background="@drawable/schedle_b"
+    tools:showIn="@layout/activity_profilsett">
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="439dp"
         android:layout_alignParentTop="true"
         android:layout_centerInParent="true"
-        android:layout_marginTop="22dp"
         android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints">
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="78dp">
 
 
         <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -32,11 +30,11 @@
             app:civ_border_color="#FF000000"
             app:civ_border_width="1dp" />
         <!--<ImageView
-            android:id="@+id/imgProfil"
-            android:layout_width="100dp"
-            android:layout_height="124dp"
-            android:layout_gravity="center_horizontal"
-            android:src="@mipmap/ic_schedule_logo" />-->
+    android:id="@+id/imgProfil"
+    android:layout_width="100dp"
+    android:layout_height="124dp"
+    android:layout_gravity="center_horizontal"
+    android:src="@mipmap/ic_schedule_logo" />-->
 
         <TextView
             android:id="@+id/txtChangePhoto"
@@ -116,6 +114,5 @@
             android:textColor="@android:color/white" />
 
     </LinearLayout>
-
 
 </android.support.constraint.ConstraintLayout>

@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -49,6 +50,8 @@ public class HomePage extends AppCompatActivity
     private NavigationView nvDrawer;
 
     public Boolean isAdmin;
+
+    private String newsUrl = "https://bandsoftware.net/category/news/";
 
     TextView txtFullName, txtEmail;
     ImageView imgAvatar;
@@ -97,7 +100,7 @@ public class HomePage extends AppCompatActivity
         //Set User name
         auth = FirebaseAuth.getInstance();
 
-        MobileAds.initialize(this, "ca-app-pub-7265545828484759~2384016923");
+        MobileAds.initialize(this, "ca-app-pub-7265545828484759/4109639474");
 
         if(Objects.equals(auth.getCurrentUser().getUid(), "dbBC8NzHGuhNFm0U80q86xkfTff1")){
             isAdmin = Boolean.TRUE;
@@ -126,15 +129,19 @@ public class HomePage extends AppCompatActivity
             txtEmail.setText(auth.getCurrentUser().getEmail());
         }
 
-        //Load menu
+       /* //Load menu TODO: Auf WebVie wurde gewechselt
         recyler_menu = (RecyclerView)findViewById(R.id.recycler_menu);
         recyler_menu.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyler_menu.setLayoutManager(layoutManager);
 
-        loadMenu();
+        loadMenu();*/
 
-        //Set User Image TODO
+       WebView webview = (WebView) this.findViewById(R.id.HomeWebView);
+       webview.getSettings().setJavaScriptEnabled(true);
+       webview.loadUrl(newsUrl);
+
+        //Set User Image
 
         StorageReference load = mStorage.child("users").child(auth.getCurrentUser().getUid()).child("Avatar").child("avatar.png");
 
@@ -215,7 +222,7 @@ public class HomePage extends AppCompatActivity
             startActivity(homeIntent);
 
         } else if (id == R.id.nav_schedule) {
-            Intent Schedule = new Intent (HomePage.this,CalendarView.class);
+            Intent Schedule = new Intent (HomePage.this,Schedule.class);
             startActivity(Schedule);
 
         } else if (id == R.id.nav_homeworks) {
@@ -231,6 +238,8 @@ public class HomePage extends AppCompatActivity
         } else if (id == R.id.nav_cribs) {
 
         } else if (id == R.id.nav_walks) {
+
+        }else if (id == R.id.nav_groups){
 
         } else if (id == R.id.nav_tools) {
 
@@ -250,7 +259,12 @@ public class HomePage extends AppCompatActivity
     public void onClick(View v) {
         if(v.getId() == R.id.txtFullName){
             startActivity(new Intent(HomePage.this,Profile.class));
+        } else if (v.getId() == R.id.imgProfile){
+            startActivity(new Intent(HomePage.this,Profile.class));
+        } else if (v.getId() == R.id.txtEmail){
+            startActivity(new Intent(HomePage.this,Profile.class));
         }
+
     }
 
 

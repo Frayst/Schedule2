@@ -11,6 +11,7 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -40,6 +41,8 @@ import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
 import java.util.Objects;
+
+import rido.schedule2.ViewHolder.ProfileSettings;
 
 import static android.R.attr.id;
 import static android.R.attr.thickness;
@@ -143,7 +146,8 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings_profile) {
-            return true;
+            Intent ProfileSettingg = new Intent (Profile.this,ProfileSettings.class);
+            startActivity(ProfileSettingg);
         }
 
         return super.onOptionsItemSelected(item);

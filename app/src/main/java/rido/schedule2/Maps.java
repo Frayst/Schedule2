@@ -175,8 +175,9 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback, Googl
                 locationResult.addOnCompleteListener(this, new OnCompleteListener<Location>() {
                     @Override
                     public void onComplete(@NonNull Task<Location> task) {
-                        if (task.isSuccessful()) {
+                        /*if (task.isSuccessful()) {
                             // Set the map's camera position to the current location of the device.
+                         //TODO: Fix mLastKnownLocation and moveCamera
                             mLastKnownLocation = task.getResult();
                             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(
                                     new LatLng(mLastKnownLocation.getLatitude(),
@@ -187,7 +188,7 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback, Googl
                             mMap.moveCamera(CameraUpdateFactory
                                     .newLatLngZoom(mDefaultLocation, DEFAULT_ZOOM));
                             mMap.getUiSettings().setMyLocationButtonEnabled(false);
-                        }
+                        }*/
                     }
                 });
             }

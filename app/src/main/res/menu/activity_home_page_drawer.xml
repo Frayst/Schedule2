@@ -5,15 +5,11 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_home_black_24dp"
-            android:title="Home" />
+            android:title="News" />
         <item
             android:id="@+id/nav_schedule"
             android:icon="@drawable/ic_schedule_black_24dp"
             android:title="Schedule" />
-        <item
-            android:id="@+id/nav_homeworks"
-            android:icon="@drawable/ic_library_books_black_24dp"
-            android:title="Homeworks" />
 
         <item
             android:id="@+id/nav_messages"
@@ -21,42 +17,51 @@
             android:title="Messages" />
 
         <item
+            android:id="@+id/nav_homeworks"
+            android:icon="@drawable/ic_library_books_black_24dp"
+            android:title="Homeworks" />
+
+        <item
+            android:id="@+id/nav_cribs"
+            android:icon="@drawable/ic_description_black_24dp"
+            android:title="Crib sheets" />
+
+        <item
+            android:id="@+id/nav_groups"
+            android:icon="@drawable/ic_persone"
+            android:title="Group" />
+
+        <item
             android:id="@+id/nav_maps"
             android:icon="@drawable/ic_map_black_24dp"
             android:title="Maps" />
 
         <item
-            android:id="@+id/nav_cribs"
-            android:icon="@drawable/ic_description_black_24dp"
-            android:title="Cribs" />
-
-        <item
             android:id="@+id/nav_walks"
             android:icon="@drawable/ic_directions_walk_black_24dp"
-            android:title="My Walks" />
+            android:title="Walks" />
 
-        <item
-            android:id="@+id/nav_tools"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
-
-        <item
-            android:id="@+id/nav_signout"
-            android:icon="@drawable/ic_exit_to_app_black_24dp"
-            android:title="Sign Out" />
     </group>
 
-    <!--<item android:title="Communicate">
+    <item android:title="">
         <menu>
-            <item
+           <!-- <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
                 android:title="Share" />
             <item
                 android:id="@+id/nav_send"
                 android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:title="Send" />-->
+            <item
+                android:id="@+id/nav_tools"
+                android:icon="@drawable/ic_menu_manage"
+                android:title="Tools" />
+            <item
+                android:id="@+id/nav_signout"
+                android:icon="@drawable/ic_exit_to_app_black_24dp"
+                android:title="Sign Out" />
         </menu>
-    </item>-->
+    </item>
 
 </menu>

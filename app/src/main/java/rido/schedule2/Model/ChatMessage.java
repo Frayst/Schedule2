@@ -27,9 +27,7 @@ public class ChatMessage {
         return messageText;
     }
 
-    public void setMessageText(String messageText) {
-        this.messageText = messageText;
-    }
+    public void setMessageText(String messageText) { this.messageText = messageText; }
 
     public String getMessageUser() {
         return messageUser;

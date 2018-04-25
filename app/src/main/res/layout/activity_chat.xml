@@ -1,52 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/schedle_b"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin">
+    android:background="@drawable/bg_new"  >
+
+    <LinearLayout
+        android:id="@+id/linlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="top">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/Chatappbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </android.support.v7.widget.Toolbar>
+        </android.support.design.widget.AppBarLayout>
+    </LinearLayout>
 
     <android.support.design.widget.FloatingActionButton
+        android:id="@+id/senden"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:clickable="true"
-        android:src="@drawable/ic_arrow_forward_black_24dp"
-        android:id="@+id/send"
-        android:tint="@android:color/white"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_menu_send"
+        android:tint="@android:color/white"
         app:fabSize="mini" />
 
     <android.support.design.widget.TextInputLayout
+        android:id="@+id/textInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColorHint="@color/white"
-        android:layout_toLeftOf="@id/send"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@id/senden"
+        android:textColorHint="@color/black">
 
         <EditText
+            android:id="@+id/input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
             android:hint="Input"
-            android:id="@+id/input"
-            />
+            android:textColor="@color/black"
+            tools:ignore="HardcodedText" />
     </android.support.design.widget.TextInputLayout>
 
     <ListView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:cacheColorHint="@color/white"
-        android:layout_above="@id/send"
-        android:dividerHeight="1dp"
-        android:divider="@color/transparent"
         android:id="@+id/list_of_messages"
-        android:layout_marginBottom="16dp"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/senden"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/linlayout"
+        android:layout_marginBottom="16dp"
+        android:cacheColorHint="@color/white"
+        android:divider="@color/transparent"
+        android:dividerHeight="1dp" />
+
+
 </RelativeLayout>
